@@ -1,18 +1,43 @@
+import utilities.*
 
-def call(stages){
+def call(stages) {
 
-    build()
-    test()
-    jar()
-    sonar()
-    curl()
-    nexus()
-    descarga()
-    levantar()
-    testear()
+    def listStagesOrder = [
+        'build': 'sBuild',
+        'sonar': 'sSonar',
+        'run_spring_curl': 'sCurlSpring',
+        'upload_nexus': 'sUNexus',
+        'download_nexus': 'sDNexus',
+        'run_jar': 'sTestJar',
+        'curl_jar': 'sCurlJar'
+    ]
+
+    def arrayUtils = new array.arrayExtentions();
+    def stagesArray = []
+        stagesArray = arrayUtils.searchKeyInArray(stages, ";", listStagesOrder)
+
+    if (stagesArray.isEmpty()) {
+        echo 'Se ejecutaran todos los stages'
+        allStages()
+    } else {
+        echo 'Stages a ejecutar :' + stages
+        stagesArray.each{ stageFunction ->
+            echo 'Ejecutando ' + stageFunction
+            "${stageFunction}"()
+        }
+    }
 
 }
 
+def allStages(){
+    sBuild()
+    sSonar()
+    sCurlSpring()
+    sUNexus()
+    sDNexus()
+    sTestJar()
+    sCurlJar()
+}
 
 def build() {    
     def listaDeStages = stages.split(';')
