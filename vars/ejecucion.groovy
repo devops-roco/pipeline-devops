@@ -28,13 +28,13 @@ def call(){
                             switch(params.compileTool)
                             {
                                 case 'Maven':
-                                    echo "Maven"
+                                    figlet  "Maven"
                                     //def ejecucion = load 'maven.groovy'
                                     //ejecucion.call()
                                     maven.call(params.stages)
                                 break;
                                 case 'Gradle':
-                                    echo "Gradle"
+                                    figlet  "Maven"
                                     //def ejecucion = load 'gradle.groovy'
                                     //ejecucion.call()
                                     gradle.call(params.stages)

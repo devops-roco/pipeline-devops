@@ -3,13 +3,15 @@ import utilities.*
 def call(stages) {
 
     def listStagesOrder = [
-        'build': 'sBuild',
-        'sonar': 'sSonar',
-        'run_spring_curl': 'sCurlSpring',
-        'upload_nexus': 'sUNexus',
-        'download_nexus': 'sDNexus',
-        'run_jar': 'sTestJar',
-        'curl_jar': 'sCurlJar'
+        'build': 'build',
+        'test': 'test',
+        'empaquetado': 'jar',
+        'analisis sonar': 'sonar',
+        'probando servicio': 'curl',
+        'nexus': 'nexus',
+        'descarga Jar': 'descarga'
+        'levantar Jar': 'levantar',
+        'probando servicio': 'testear'
     ]
 
     def arrayUtils = new array.arrayExtentions();
@@ -30,13 +32,15 @@ def call(stages) {
 }
 
 def allStages(){
-    sBuild()
-    sSonar()
-    sCurlSpring()
-    sUNexus()
-    sDNexus()
-    sTestJar()
-    sCurlJar()
+    build()
+    test()
+    jar()
+    sonar()
+    curl()
+    nexus()
+    descarga()
+    levantar()
+    testear()
 }
 
 def build() {    
