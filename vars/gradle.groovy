@@ -25,7 +25,7 @@ def call(){
                 mavenAssetList: [
                     [   classifier: '',
                         extension: '',
-                        filePath: 'DevOpsUsach2020-0.0.1.jar'
+                        filePath: 'build/DevOpsUsach2020-0.0.1.jar'
                     ]
                 ],
                 mavenCoordinate: [
