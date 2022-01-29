@@ -15,7 +15,7 @@ def call(){
             }
             parameters {
                 choice name: 'compileTool', choices: ['Gradle', 'Maven'], description: 'Seleccione el empaquetador maven/gradle'
-                string name: 'stages',escription: 'Ingrese los stages a ejecutar', trim: true
+                string name: 'stages', description: 'Ingrese los stages a ejecutar', trim: true
 
             }
             stages {
