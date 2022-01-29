@@ -7,8 +7,6 @@
 
 def call(){
   
-    stage(){
-    
         pipeline {
             agent any
             environment {
@@ -57,7 +55,7 @@ def call(){
                 }
             }
         }
-    }
+    
 }
 
 return this;
