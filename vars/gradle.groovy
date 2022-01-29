@@ -1,5 +1,5 @@
 
-def call(){
+def call(stages){
     
     stage("Paso 1: Construccion y test") {
         sh "gradle clean build"

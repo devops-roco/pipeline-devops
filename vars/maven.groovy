@@ -1,5 +1,7 @@
 
-def call(){
+def call(stages){
+    def listaDeStages = stages.split(';')
+    sh "echo ${listaDeStages}"
     env.STAGE = "Paso 1: Compilacion"
     stage("$env.STAGE") {
         sh "mvn clean compile -e"

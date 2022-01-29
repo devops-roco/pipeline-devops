@@ -14,7 +14,9 @@ def call(){
                 NEXUS_PASSWORD     = credentials('user-pass')
             }
             parameters {
-                choice  name: 'compileTool', choices: ['Gradle', 'Maven'], description: 'Seleccione el empaquetador maven/gradle'
+                choice name: 'compileTool', choices: ['Gradle', 'Maven'], description: 'Seleccione el empaquetador maven/gradle'
+                string name: 'stages',escription: 'Ingrese los stages a ejecutar', trim: true
+
             }
             stages {
                 stage("Pipeline"){
@@ -22,19 +24,20 @@ def call(){
                         script{
                             // params.compileTool
                             sh "env"
+                            env.STAGE = ""
                             switch(params.compileTool)
                             {
                                 case 'Maven':
                                     echo "Maven"
                                     //def ejecucion = load 'maven.groovy'
                                     //ejecucion.call()
-                                    maven.call()
+                                    maven.call(params.stages)
                                 break;
                                 case 'Gradle':
                                     echo "Gradle"
                                     //def ejecucion = load 'gradle.groovy'
                                     //ejecucion.call()
-                                    gradle.call()
+                                    gradle.call(params.stages)
                                 break;
                             }
                         }
