@@ -9,7 +9,7 @@ def call(stages) {
         'analisis sonar': 'sonar',
         'probando servicio': 'curl',
         'nexus': 'nexus',
-        'descarga Jar': 'descarga'
+        'descarga Jar': 'descarga',
         'levantar Jar': 'levantar',
         'probando servicio': 'testear'
     ]
