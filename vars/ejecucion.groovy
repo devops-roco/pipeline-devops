@@ -44,10 +44,10 @@ def call(){
                     }
                     post{
                         success{
-                            slackSend color: 'good', message: "[Diego Roco] [${JOB_NAME}] [${BUILD_TAG}] Ejecucion Exitosa", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token-slack'
+                            slackSend color: 'good', message: "[Diego Roco] [${JOB_NAME}] [${params.compileTool}] Ejecucion Exitosa", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token-slack'
                         }
                         failure{
-                            slackSend color: 'danger', message: "[Diego Roco] [${env.JOB_NAME}] [${BUILD_TAG}] Ejecucion fallida en stage [${env.TAREA}]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token-slack'
+                            slackSend color: 'danger', message: "[Diego Roco] [${env.JOB_NAME}] [${params.compileTool}] Ejecucion fallida en stage [${stages}]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token-slack'
                         }
                     }
                 }
